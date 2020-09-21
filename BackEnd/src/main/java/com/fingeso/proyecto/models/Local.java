@@ -13,7 +13,9 @@ public class Local {
     private boolean abierto;
 
     public Local(){
-
+        this.maximoPersonas = 5;
+        this.abierto = false;
+        this.fila = new Fila();
     }
     public Local(int id, String nombre, String direccion, int maximoPersonas, Fila fila, CodigoQR codigo) {
         this.id = id;
