@@ -3,9 +3,12 @@ package com.fingeso.proyecto.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.Generated;
+
 @Document("usuario")
 public class Usuario {
     @Id
+    
     private int id;
     private String nombre;
     private String rut;

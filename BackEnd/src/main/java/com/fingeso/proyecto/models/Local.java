@@ -12,6 +12,9 @@ public class Local {
     private CodigoQR codigo;
     private boolean abierto;
 
+    public Local(){
+
+    }
     public Local(int id, String nombre, String direccion, int maximoPersonas, Fila fila, CodigoQR codigo) {
         this.id = id;
         this.nombre = nombre;

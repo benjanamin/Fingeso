@@ -1,5 +1,8 @@
 package com.fingeso.proyecto.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("cliente")
 public class Cliente extends Usuario{
     public Cliente() {
     }
