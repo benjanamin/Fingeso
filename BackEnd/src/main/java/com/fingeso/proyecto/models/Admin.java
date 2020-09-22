@@ -2,20 +2,20 @@ package com.fingeso.proyecto.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("administrador")
-public class Administrador extends Usuario{
+@Document("admin")
+public class Admin extends User {
     private Local local;
     private String password;
-    public Administrador(){
+    public Admin(){
 
     }
-    public Administrador(int id, String nombre, String rut, String telefono, int edad,Local local, String password){
-        super(id, nombre, rut, telefono, edad);
+    public Admin(int id, String name, String rut, String phone, int age, Local local, String password){
+        super(id, name, rut, phone, age);
         this.local = local;
         this.password = password;
     }
-    public Administrador( String nombre, String rut, String telefono, int edad,Local local, String password){
-        super(nombre, rut, telefono, edad);
+    public Admin(String name, String rut, String phone, int age, Local local, String password){
+        super(name, rut, phone, age);
         this.local = local;
         this.password = password;
     }

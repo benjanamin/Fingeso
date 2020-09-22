@@ -1,6 +1,6 @@
 package com.fingeso.proyecto.models;
 
-public class Administrador extends Usuario{
+public class Administrador extends User {
     private Local local;
     public Administrador(){
 

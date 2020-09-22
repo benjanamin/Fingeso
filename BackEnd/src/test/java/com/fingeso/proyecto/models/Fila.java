@@ -7,15 +7,15 @@ import java.util.ArrayList;
 public class Fila {
     @Id
     private int id;
-    private ArrayList<Cliente> listaClientes;
+    private ArrayList<Client> listaClients;
 
     public Fila(){
 
     }
 
-    public Fila(int id, ArrayList<Cliente> listaClientes) {
+    public Fila(int id, ArrayList<Client> listaClients) {
         this.id = id;
-        this.listaClientes = listaClientes;
+        this.listaClients = listaClients;
     }
 
     public int getId() {
@@ -26,12 +26,12 @@ public class Fila {
         this.id = id;
     }
 
-    public ArrayList<Cliente> getListaClientes() {
-        return listaClientes;
+    public ArrayList<Client> getListaClientes() {
+        return listaClients;
     }
 
-    public void setListaClientes(ArrayList<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
+    public void setListaClientes(ArrayList<Client> listaClients) {
+        this.listaClients = listaClients;
     }
 
     public void ordenarFila(){
@@ -39,22 +39,22 @@ public class Fila {
     }
 
     public void eliminarNumero(int numero){
-        if(numero > this.listaClientes.size() || this.listaClientes.size() == 0){
+        if(numero > this.listaClients.size() || this.listaClients.size() == 0){
             return;
         }
         else{
-            this.listaClientes.remove(numero - 1);
+            this.listaClients.remove(numero - 1);
         }
     }
 
-    public void insertar(Cliente cliente,int posicion){
-        if(this.listaClientes.contains(cliente)){
-            this.listaClientes.remove(cliente);
+    public void insertar(Client client, int posicion){
+        if(this.listaClients.contains(client)){
+            this.listaClients.remove(client);
         }
-        this.listaClientes.add(posicion - 1, cliente);
+        this.listaClients.add(posicion - 1, client);
     }
 
-    public void agregar(Cliente cliente){
-        this.listaClientes.add(cliente);
+    public void agregar(Client client){
+        this.listaClients.add(client);
     }
 }

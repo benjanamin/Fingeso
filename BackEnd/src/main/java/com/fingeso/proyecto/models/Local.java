@@ -5,35 +5,35 @@ import org.springframework.data.annotation.Id;
 public class Local {
     @Id
     private int id;
-    private String nombre;
-    private String direccion;
+    private String name;
+    private String adress;
     private int maximoPersonas;
     private Fila fila;
-    private CodigoQR codigo;
-    private boolean abierto;
+    private CodigoQR code;
+    private boolean open;
 
     public Local(){
         this.maximoPersonas = 5;
-        this.abierto = false;
+        this.open = false;
         this.fila = new Fila();
     }
-    public Local(int id, String nombre, String direccion, int maximoPersonas, Fila fila, CodigoQR codigo) {
+    public Local(int id, String name, String adress, int maximoPersonas, Fila fila, CodigoQR code) {
         this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
+        this.name = name;
+        this.adress = adress;
         this.maximoPersonas = maximoPersonas;
         this.fila = fila;
-        this.codigo = codigo;
-        this.abierto = false;
+        this.code = code;
+        this.open = false;
     }
 
-    public Local(String nombre, String direccion, int maximoPersonas, Fila fila, CodigoQR codigo) {
-        this.nombre = nombre;
-        this.direccion = direccion;
+    public Local(String name, String adress, int maximoPersonas, Fila fila, CodigoQR code) {
+        this.name = name;
+        this.adress = adress;
         this.maximoPersonas = maximoPersonas;
         this.fila = fila;
-        this.codigo = codigo;
-        this.abierto = false;
+        this.code = code;
+        this.open = false;
     }
 
     public int getId() {
@@ -44,20 +44,20 @@ public class Local {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
     public int getMaximoPersonas() {
@@ -76,28 +76,28 @@ public class Local {
         this.fila = fila;
     }
 
-    public CodigoQR getCodigo() {
-        return codigo;
+    public CodigoQR getCode() {
+        return code;
     }
 
-    public void setCodigo(CodigoQR codigo) {
-        this.codigo = codigo;
+    public void setCode(CodigoQR code) {
+        this.code = code;
     }
 
-    public boolean isAbierto() {
-        return abierto;
+    public boolean isOpen() {
+        return open;
     }
 
-    public void setAbierto(boolean abierto) {
-        this.abierto = abierto;
+    public void setOpen(boolean open) {
+        this.open = open;
     }
 
     public void abrirFila(){
-        this.abierto = true;
+        this.open = true;
     }
 
     public void cerrarFila(){
-        this.abierto = false;
+        this.open = false;
     }
 
     public void enviarMensaje(String numero){

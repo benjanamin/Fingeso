@@ -1,6 +1,6 @@
 package com.fingeso.proyecto.models;
 
-public class Cliente extends Usuario{
+public class Cliente extends User {
     public Cliente() {
     }
 
