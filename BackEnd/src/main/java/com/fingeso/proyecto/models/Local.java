@@ -1,7 +1,9 @@
 package com.fingeso.proyecto.models;
 
+import net.glxn.qrgen.QRCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import sun.security.util.Cache;
 
 @Document("local")
 public class Local {
@@ -107,11 +109,17 @@ public class Local {
         this.open = false;
     }
 
-    public void enviarMensaje(String numero){
-        
+    public void enviarMensaje(String numero, String text){
+        Message message = new Message(text,numero);
+        message.sendMessage();
     }
 
     public void addClient(Client client){
         this.fila.add(client);
+    }
+
+    public void generarCodigoQR(String text){
+        CodigoQR codigoQR = new CodigoQR();
+        codigoQR.generarCodigo(text);
     }
 }

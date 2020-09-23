@@ -36,18 +36,19 @@ public class LocalService {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(@RequestBody Local local){
         localRepo.save(local);
+        local.generarCodigoQR("localhost:8080");
     }
+
 
     @RequestMapping(value = "/addClient/{idLocal}/{phone}", method = RequestMethod.POST)
     @ResponseBody
     public void addClientToFila(@PathVariable(value = "idLocal") int id,@PathVariable(value = "phone") String phone){
-
         Client client = clientRepo.findClientByPhone(phone);
         Local local = localRepo.findByIdEquals(id);
         local.addClient(client);
         localRepo.save(local);
-
     }
+
 
 
 }
