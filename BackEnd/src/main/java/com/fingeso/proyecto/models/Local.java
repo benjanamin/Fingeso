@@ -38,6 +38,11 @@ public class Local {
         this.open = false;
     }
 
+    public Local(String name, String adress){
+        this.name = name;
+        this.adress = adress;
+    }
+
     public int getId() {
         return id;
     }
