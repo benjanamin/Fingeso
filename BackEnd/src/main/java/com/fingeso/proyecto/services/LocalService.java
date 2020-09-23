@@ -1,7 +1,9 @@
 package com.fingeso.proyecto.services;
 
 
+import com.fingeso.proyecto.models.Client;
 import com.fingeso.proyecto.models.Local;
+import com.fingeso.proyecto.repositories.ClientRepo;
 import com.fingeso.proyecto.repositories.LocalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,8 @@ public class LocalService {
     @Autowired
     private LocalRepo localRepo;
 
+    @Autowired
+    private ClientRepo clientRepo;
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @ResponseBody
     public List<Local> getAll(){
@@ -34,6 +38,16 @@ public class LocalService {
         localRepo.save(local);
     }
 
+    @RequestMapping(value = "/addClient/{idLocal}/{phone}", method = RequestMethod.POST)
+    @ResponseBody
+    public void addClientToFila(@PathVariable(value = "idLocal") int id,@PathVariable(value = "phone") String phone){
+
+        Client client = clientRepo.findClientByPhone(phone);
+        Local local = localRepo.findByIdEquals(id);
+        local.addClient(client);
+        localRepo.save(local);
+
+    }
 
 
 }

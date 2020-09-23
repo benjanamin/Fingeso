@@ -1,7 +1,9 @@
 package com.fingeso.proyecto.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document("local")
 public class Local {
     @Id
     private int id;
@@ -102,5 +104,9 @@ public class Local {
 
     public void enviarMensaje(String numero){
         
+    }
+
+    public void addClient(Client client){
+        this.fila.add(client);
     }
 }

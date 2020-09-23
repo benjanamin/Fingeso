@@ -21,8 +21,16 @@ public class ClientService {
         return this.clientRepo.findAll();
     }
 
+    @RequestMapping(value = "/getByPhone", method = RequestMethod.GET)
+    @ResponseBody
+    public Client getByPhone(String phone){
+        System.out.println("get all");
+        return this.clientRepo.findClientByPhone(phone);
+    }
+
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(@RequestBody Client client){
         clientRepo.save(client);
     }
+
 }
