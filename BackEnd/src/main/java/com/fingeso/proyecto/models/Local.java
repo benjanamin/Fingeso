@@ -7,7 +7,7 @@ import sun.security.util.Cache;
 
 @Document("local")
 public class Local {
-    @Id
+
     private int id;
     private String name;
     private String adress;
@@ -26,7 +26,7 @@ public class Local {
         this.name = name;
         this.adress = adress;
         this.maximoPersonas = maximoPersonas;
-        this.fila = fila;
+        this.fila = new Fila();
         this.code = code;
         this.open = false;
     }
@@ -35,7 +35,7 @@ public class Local {
         this.name = name;
         this.adress = adress;
         this.maximoPersonas = maximoPersonas;
-        this.fila = fila;
+        this.fila = new Fila();
         this.code = code;
         this.open = false;
     }
@@ -43,6 +43,7 @@ public class Local {
     public Local(String name, String adress){
         this.name = name;
         this.adress = adress;
+        this.fila = new Fila();
     }
 
     public int getId() {

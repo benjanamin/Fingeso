@@ -7,7 +7,6 @@ import javax.annotation.Generated;
 
 @Document("usuario")
 public class User {
-    @Id
     
     private int id;
     private String name;

@@ -40,13 +40,19 @@ public class LocalService {
     }
 
 
-    @RequestMapping(value = "/addClient/{idLocal}/{phone}", method = RequestMethod.POST)
+    @RequestMapping(value = "/addClient/{idLocal}", method = RequestMethod.POST)
     @ResponseBody
-    public void addClientToFila(@PathVariable(value = "idLocal") int id,@PathVariable(value = "phone") String phone){
-        Client client = clientRepo.findClientByPhone(phone);
+    public void addClientToFila(@PathVariable(value = "idLocal") int id, @RequestBody Client client){
+        clientRepo.save(client);
+        System.out.println("holaaaaaa1");
         Local local = localRepo.findByIdEquals(id);
+        System.out.println("holaaaaaa2");
         local.addClient(client);
+        System.out.println("holaaaaaa4");
+        localRepo.deleteById(id);
         localRepo.save(local);
+
+        System.out.println("holaaaaaa");
     }
 
 

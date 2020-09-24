@@ -10,7 +10,7 @@ public class Fila {
     private ArrayList<Client> clientsList;
 
     public Fila(){
-
+        clientsList = new ArrayList<Client>();
     }
 
     public Fila(int id, ArrayList<Client> clientsList) {
