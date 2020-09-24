@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LocalRepo extends MongoRepository<Local, String> {
-    Local findByIdEquals(int id);
-    void deleteById(int id);
+    Local findByIdEquals(String id);
 }

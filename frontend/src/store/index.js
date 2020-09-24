@@ -9,7 +9,7 @@ export default new Vuex.Store({
     Locales:[],
     Client:null
   },
-  // Funcionando, Revisar error al agregar mas de un local (solo si queda tiempo :)
+  
   mutations: {
     CreateLocal(state,Local){
       try {
@@ -28,7 +28,7 @@ export default new Vuex.Store({
     },
     RequestNumber(state,Client){
       try {
-		axios.post('http://localhost:8081/local/addClient/0/', Client)
+		axios.post('http://localhost:8081/local/addClient/5f6ca287bba8651f967ee661', Client)
 			.then(response => {
 				// eslint-disable-next-line no-console
 				console.log(response);

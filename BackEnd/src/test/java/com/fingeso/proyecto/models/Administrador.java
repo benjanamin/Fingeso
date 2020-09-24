@@ -5,7 +5,7 @@ public class Administrador extends User {
     public Administrador(){
 
     }
-    public Administrador(int id, String nombre, String rut, String telefono, int edad,Local local){
+    public Administrador(String id, String nombre, String rut, String telefono, int edad,Local local){
         super(id, nombre, rut, telefono, edad);
         this.local = local;
     }

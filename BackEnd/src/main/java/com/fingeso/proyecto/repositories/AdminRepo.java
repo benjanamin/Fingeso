@@ -11,7 +11,7 @@ import java.util.List;
 public interface AdminRepo extends MongoRepository<Admin, String> {
 
     Admin findAdminByRutAndAndPassword(String rut, String password);
-    Admin findAdminById(int id);
+    Admin findAdminById(String id);
     Admin findAdminByRut(String rut);
     Admin findAdminByPhone(String phone);
     List<Admin> findAll();

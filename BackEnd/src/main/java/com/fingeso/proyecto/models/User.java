@@ -7,8 +7,8 @@ import javax.annotation.Generated;
 
 @Document("usuario")
 public class User {
-    
-    private int id;
+    @Id
+    private String id;
     private String name;
     private String rut;
     private String phone;
@@ -18,7 +18,7 @@ public class User {
 
     }
 
-    public User(int id, String name, String rut, String phone, int age){
+    public User(String id, String name, String rut, String phone, int age){
         this.id = id;
         this.name = name;
         this.rut = rut;
@@ -32,11 +32,11 @@ public class User {
         this.age = age;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

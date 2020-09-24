@@ -27,7 +27,7 @@ public class LocalService {
     }
     @RequestMapping(value = "/getbyid/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Local getById(@PathVariable(value = "id") int id){
+    public Local getById(@PathVariable(value = "id") String id){
         System.out.println("get localbyid");
         System.out.println(id);
         return localRepo.findByIdEquals(id);
@@ -36,23 +36,31 @@ public class LocalService {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void create(@RequestBody Local local){
         localRepo.save(local);
-        local.generarCodigoQR("localhost:8080");
+        local.generarCodigoQR("http://localhost:8080/#/SolicitarAtencion");
+        //Al leer el codigo QR le indica que local quiere solicitar numero
+        //local.generarCodigoQR("http://192.168.0.6:8080//#/SolicitarAtencion/"+local.getId()+"/");
     }
-
 
     @RequestMapping(value = "/addClient/{idLocal}", method = RequestMethod.POST)
     @ResponseBody
-    public void addClientToFila(@PathVariable(value = "idLocal") int id, @RequestBody Client client){
+    public void addClientToFila(@PathVariable(value = "idLocal") String id, @RequestBody Client client){
         clientRepo.save(client);
-        System.out.println("holaaaaaa1");
-        Local local = localRepo.findByIdEquals(id);
-        System.out.println("holaaaaaa2");
-        local.addClient(client);
-        System.out.println("holaaaaaa4");
-        localRepo.deleteById(id);
-        localRepo.save(local);
 
-        System.out.println("holaaaaaa");
+        Local local = localRepo.findByIdEquals(id);
+
+        local.addClient(client);
+
+        local.enviarMensaje("Quedan 5 minutos para su atencion en local",client.getPhone());
+
+        localRepo.deleteById(id);
+
+        localRepo.save(local);
+    }
+
+    @RequestMapping(value = "/sendMessage/{localID}/{phone}", method = RequestMethod.GET)
+    @ResponseBody
+    public void sendMessage(@PathVariable(value ="localID") String id, @PathVariable(value = "phone") String phone){
+        localRepo.findByIdEquals(id).enviarMensaje("phone","Quedan 5 minutos");
     }
 
 

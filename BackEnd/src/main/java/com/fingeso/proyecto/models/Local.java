@@ -7,8 +7,8 @@ import sun.security.util.Cache;
 
 @Document("local")
 public class Local {
-
-    private int id;
+    @Id
+    private String id;
     private String name;
     private String adress;
     private int maximoPersonas;
@@ -21,7 +21,7 @@ public class Local {
         this.open = false;
         this.fila = new Fila();
     }
-    public Local(int id, String name, String adress, int maximoPersonas, Fila fila, CodigoQR code) {
+    public Local(String id, String name, String adress, int maximoPersonas, Fila fila, CodigoQR code) {
         this.id = id;
         this.name = name;
         this.adress = adress;
@@ -46,11 +46,11 @@ public class Local {
         this.fila = new Fila();
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -110,7 +110,7 @@ public class Local {
         this.open = false;
     }
 
-    public void enviarMensaje(String numero, String text){
+    public void enviarMensaje(String text,String numero){
         Message message = new Message(text,numero);
         message.sendMessage();
     }

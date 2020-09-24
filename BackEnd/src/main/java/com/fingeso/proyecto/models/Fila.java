@@ -6,23 +6,23 @@ import java.util.ArrayList;
 
 public class Fila {
     @Id
-    private int id;
+    private String id;
     private ArrayList<Client> clientsList;
 
     public Fila(){
         clientsList = new ArrayList<Client>();
     }
 
-    public Fila(int id, ArrayList<Client> clientsList) {
+    public Fila(String id, ArrayList<Client> clientsList) {
         this.id = id;
         this.clientsList = clientsList;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

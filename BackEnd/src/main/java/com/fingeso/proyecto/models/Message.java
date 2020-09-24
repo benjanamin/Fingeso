@@ -47,7 +47,6 @@ public class Message {
             BufferedReader readerIn = new BufferedReader(new InputStreamReader(streamIn));
             System.out.println(readerIn.readLine());
             readerIn.close();
-            System.out.println("cerra3");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
